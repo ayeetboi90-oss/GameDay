@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GameDay Calendar</title>
+  <meta name="description" content="A simple team calendar for practices, meetings, and games.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">GD</span>
+        <span class="brand-name">GameDay</span>
+      </div>
+      <nav class="tabs" aria-label="Main">
+        <button class="tab" data-action="view" data-view="schedule">Schedule</button>
+        <button class="tab" data-action="view" data-view="edit">Add &amp; Edit</button>
+        <button class="tab" data-action="view" data-view="stats">Stats</button>
+      </nav>
+    </div>
+    <div class="teambar">
+      <div class="teambar-inner" id="teamFilter" aria-label="Filter by team"></div>
+    </div>
+  </header>
+
+  <main id="app" class="wrap"></main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="lib.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
