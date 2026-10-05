@@ -13,11 +13,17 @@ const css = read('styles.css');
 const ALLOWED_SCRIPT_HOSTS = ['cdnjs.cloudflare.com', 'cdn.jsdelivr.net', 'unpkg.com'];
 
 test('index.html references only files that exist, lib.js before app.js', () => {
-  const srcs = [...html.matchAll(/<(?:script|link)[^>]+(?:src|href)="([^"]+)"/g)].map((m) => m[1]);
+  const srcs = [...html.matchAll(/<(?:script|link|img)[^>]+(?:src|href)="([^"]+)"/g)].map((m) => m[1]);
   for (const s of srcs.filter((s) => !/^https?:/.test(s))) {
     assert.ok(fs.existsSync(path.join(root, s)), `missing local file: ${s}`);
   }
   assert.ok(html.indexOf('lib.js') < html.indexOf('app.js'), 'lib.js must load before app.js');
+});
+
+test('footer QR code is present with alt text and points at the live site', () => {
+  assert.match(html, /<img src="qr-code\.svg"[^>]+alt="[^"]+"/);
+  assert.match(html, /class="qr-card" href="https:\/\/ayeetboi90-oss\.github\.io\/GameDay\/"/);
+  assert.match(read('qr-code.svg'), /^<\?xml[\s\S]*<svg[^>]+viewBox=/);
 });
 
 test('external scripts come only from allowed CDNs', () => {

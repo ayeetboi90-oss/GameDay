@@ -306,6 +306,27 @@ h1, h2, h3, h4 { margin: 0; }
 .quick-score input { width: 56px; text-align: center; background: var(--surface-2); border: 1px solid var(--line); border-radius: 8px; padding: 6px; }
 .quick-score span { color: var(--muted); font-weight: 700; }
 
+/* ---------- Footer ---------- */
+.site-footer { background: var(--header); color: var(--header-ink); border-top: 4px solid var(--brand); }
+.footer-inner {
+  max-width: 1240px; margin: 0 auto; padding: 28px 16px;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+}
+.footer-brand { display: flex; align-items: center; gap: 12px; }
+.footer-brand p { margin: 2px 0 0; color: var(--header-muted); font-size: 14px; }
+.qr-card {
+  display: flex; align-items: center; gap: 16px; text-decoration: none; color: inherit;
+  background: rgba(255, 255, 255, .05); border: 1px solid rgba(255, 255, 255, .1);
+  border-radius: var(--radius); padding: 12px 18px 12px 12px;
+}
+.qr-card:hover { background: rgba(255, 255, 255, .09); }
+.qr-card:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; }
+/* QR stays dark-on-white in both themes so phones can scan it */
+.qr-card img { display: block; width: 104px; height: 104px; background: #fff; border-radius: 10px; padding: 4px; flex: none; }
+.qr-text { font-size: 14px; color: var(--header-muted); max-width: 220px; }
+.qr-text b { display: block; font-family: var(--display); font-size: 24px; letter-spacing: 1px; font-weight: 400; color: var(--header-ink); line-height: 1.1; }
+.qr-text small { display: block; margin-top: 6px; font-size: 12px; color: var(--brand); font-weight: 600; word-break: break-all; }
+
 /* ---------- Toast ---------- */
 .toast {
   position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 20px);
